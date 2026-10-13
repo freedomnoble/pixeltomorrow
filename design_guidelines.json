@@ -1,0 +1,89 @@
+{
+  "project_name": "The Tomorrow Kingdom",
+  "archetype": "RETRO FANTASY POINT-AND-CLICK ADVENTURE (SWISS BRUTALIST PIXEL FRAME)",
+  "emotional_tone": "Mysterious, strange, vintage pixel fantasy, atmospheric suspense, classic PC adventure gaming nostalgia",
+  "theme": "dark",
+  "design_system_rules": {
+    "color_palette": {
+      "background_base": "#0B0F0E",
+      "panel_background": "#141C1A",
+      "frame_border_dark": "#000000",
+      "frame_border_gold": "#C89D39",
+      "accent_gold": "#E5A93C",
+      "accent_amber": "#FFB834",
+      "forest_green_deep": "#0F2B1D",
+      "forest_green_bright": "#2A6E49",
+      "mist_blue": "#4A6B82",
+      "royal_blue": "#1E3B70",
+      "text_primary": "#F4E8C1",
+      "text_secondary": "#B8A882",
+      "text_highlight": "#FFF4AA",
+      "danger_red": "#9E2A2B",
+      "danger_bright": "#E63946"
+    },
+    "typography": {
+      "heading_font": "'Press Start 2P', 'VT323', 'Courier Prime', monospace",
+      "body_font": "'VT323', 'Press Start 2P', monospace",
+      "ui_font": "'VT323', monospace",
+      "h1_title": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-widest text-[#E5A93C] uppercase",
+      "h2_section": "text-xl sm:text-2xl font-semibold text-[#F4E8C1]",
+      "h3_subtitle": "text-lg sm:text-xl text-[#B8A882]",
+      "body_text": "text-base sm:text-lg leading-relaxed text-[#F4E8C1]",
+      "caption_text": "text-sm text-[#B8A882]"
+    },
+    "borders_and_frames": {
+      "retro_border_outer": "border-4 border-black ring-4 ring-[#C89D39] rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]",
+      "retro_panel": "bg-[#141C1A] border-4 border-black p-4 text-[#F4E8C1] shadow-[4px_4px_0px_0px_rgba(0,0,0,0.8)]",
+      "hotspot_hover": "ring-2 ring-[#FFB834] bg-[#FFB834]/20 backdrop-blur-[1px] shadow-[0_0_12px_rgba(255,184,52,0.6)] cursor-pointer transition-all duration-150"
+    },
+    "spacing_and_layout": {
+      "game_container_max_width": "max-w-6xl mx-auto p-4 sm:p-6 space-y-4",
+      "viewport_aspect_ratio": "aspect-video w-full relative overflow-hidden bg-black border-4 border-black ring-2 ring-[#C89D39]",
+      "bottom_panel_layout": "grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-[#141C1A] border-4 border-black"
+    }
+  },
+  "asset_manifest": {
+    "local_assets": {
+      "village": "/assets/village.jpg",
+      "forest_edge": "/assets/forest_edge.jpg",
+      "misty_woods": "/assets/misty_woods.jpg",
+      "castle_gate": "/assets/castle_gate.jpg",
+      "castle_stairs": "/assets/castle_stairs.jpg",
+      "throne_hall": "/assets/throne_hall.jpg",
+      "cliff_fall": "/assets/cliff_fall.jpg",
+      "shopkeeper": "/assets/shopkeeper.jpg",
+      "mage_twins": "/assets/mage_twins.jpg",
+      "princess": "/assets/princess.jpg"
+    }
+  },
+  "key_components": {
+    "TitleScreen": "Full-screen pixel backdrop (village or misty_woods) with heavy black border frame, pulsing 'NEW GAME' & 'CONTINUE' buttons in retro pixel gold typography, audio ambient toggle, and save slot preview modal.",
+    "SceneViewer": "16:9 fixed ratio stage rendering background pixel-art scene with dynamic clickable hotspot overlay boxes. Displays crisp hover outlines, cursor indicator icon, and top objective hint bar overlay.",
+    "HotspotOverlay": "Absolute positioning percentage-based interactive areas with pixelated cursor icons, hover tooltip labels in retro gold tags, and click sound/effect triggers.",
+    "NarrationLog": "Classic bottom adventure box with typewriter text scroll effect, log history toggle, and speaker tag styling.",
+    "InventoryBar": "Fixed horizontal slot grid displaying collected items (e.g. Ancient Key, Glowing Rune, Silver Dagger, Rusty Lantern). Items can be selected, examined, or combined with hotspots.",
+    "DialogueOverlay": "NPC interaction overlay with portrait asset (shopkeeper, mage_twins, princess), text narrative box, and 2-4 numbered retro response option buttons.",
+    "SpecialPromptInput": "Typed action terminal box used only in key puzzle/combat moments (e.g., typing magic words, deciphering runes, or countering enemy moves). Features forgiving fuzzy-matching parser and hint guidance.",
+    "CombatEncounterPanel": "Turn-based retro encounter overlay showing enemy sprite, telegraph threat text, action menu (Attack, Defend, Use Item, Cast Spell), and typed finisher box.",
+    "DeathScreen": "Retro game over screen with comical fantasy death text, crimson pixel border flash, 'RELOAD CHECKPOINT' & 'RESTART ADVENTURE' options.",
+    "GameMenu": "Top-bar floating control panel containing Save Game (localStorage), Load Game, Restart, Quest Log, Sound Effects/BGM toggle, and Help/Controls modal."
+  },
+  "data_testid_convention": "All interactive elements (buttons, hotspot clicks, inventory slots, dialogue choices, typed inputs, menu buttons) must include specific data-testid attributes formatted in kebab-case e.g. data-testid='start-game-button', data-testid='hotspot-gate-keeper', data-testid='inventory-item-key', data-testid='dialogue-choice-1', data-testid='typed-action-input'.",
+  "instructions_to_main_agent": [
+    "Ensure all components follow the retro fantasy pixel-art aesthetic with solid black frames (#000000) and gold accent borders (#C89D39).",
+    "Use Google Fonts 'Press Start 2P' and 'VT323' via HTML head font import or index.css @import for genuine CRT retro game typography.",
+    "Use local pixel art assets located in public/assets/ (village.jpg, forest_edge.jpg, misty_woods.jpg, castle_gate.jpg, castle_stairs.jpg, throne_hall.jpg, cliff_fall.jpg, shopkeeper.jpg, mage_twins.jpg, princess.jpg).",
+    "Ensure input parser handles typos gracefully (lowercase normalization, keyword inclusion matching) so typed choices feel fun and non-frustrating.",
+    "Implement full local storage persistence for save points, inventory items, quest states, and sound settings.",
+    "Never rely on default browser transparent backgrounds; keep dialogue overlay and panels opaque with #141C1A dark retro panel backgrounds.",
+    "Include sound effects (using Web Audio API synthesizers or simple beep effects) for retro clicks, hotspot discoveries, and item pickup feedback.",
+    "Ensure all interactive elements carry relevant data-testid attributes for automated verification."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do NOT center align main layout container globally; preserve structured retro CRT frame boundaries.",
+    "Do NOT use generic modern sans-serif fonts for headings; stick strictly to pixel/monospace fonts.",
+    "Do NOT use pure #000000 gradients; use flat deep dark backgrounds (#0B0F0E and #141C1A) with crisp 4px solid borders.",
+    "Ensure responsive layout scales cleanly on smaller screens while preserving the 16:9 aspect ratio box for scene viewer.",
+    "Add keyboard navigation shortcuts (1-4 for dialogue choices, Enter for text input, Esc for menu)."
+  ]
+}
